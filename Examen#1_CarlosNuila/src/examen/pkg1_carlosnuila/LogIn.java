@@ -5,6 +5,10 @@
  */
 package examen.pkg1_carlosnuila;
 
+import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Carlos Nuila
@@ -42,6 +46,8 @@ public class LogIn extends javax.swing.JFrame {
         correo = new javax.swing.JTextField();
         generoFavorito = new javax.swing.JTextField();
         bt_crearUsuario = new javax.swing.JButton();
+        jLabel26 = new javax.swing.JLabel();
+        nombreCompleto = new javax.swing.JTextField();
         jFadministrador = new javax.swing.JFrame();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         AgregarLibro = new javax.swing.JPanel();
@@ -58,10 +64,6 @@ public class LogIn extends javax.swing.JFrame {
         jt_autor = new javax.swing.JTextField();
         jt_copias = new javax.swing.JTextField();
         jt_titulo = new javax.swing.JTextField();
-        historia = new javax.swing.JCheckBox();
-        fantasia = new javax.swing.JCheckBox();
-        romance = new javax.swing.JCheckBox();
-        accion = new javax.swing.JCheckBox();
         rb_2 = new javax.swing.JRadioButton();
         rb_3 = new javax.swing.JRadioButton();
         rb_5 = new javax.swing.JRadioButton();
@@ -71,6 +73,9 @@ public class LogIn extends javax.swing.JFrame {
         jTdescripcion = new javax.swing.JTextArea();
         jLabel15 = new javax.swing.JLabel();
         jb_crearLibro = new javax.swing.JButton();
+        genero = new javax.swing.JComboBox<>();
+        jLabel27 = new javax.swing.JLabel();
+        valor = new javax.swing.JTextField();
         Modificar = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
@@ -85,10 +90,6 @@ public class LogIn extends javax.swing.JFrame {
         jt_autorNuevo = new javax.swing.JTextField();
         jt_copiasNuevo = new javax.swing.JTextField();
         jt_tituloNuevo = new javax.swing.JTextField();
-        historia1 = new javax.swing.JCheckBox();
-        fantasia1 = new javax.swing.JCheckBox();
-        romance1 = new javax.swing.JCheckBox();
-        accion1 = new javax.swing.JCheckBox();
         rb_2_ = new javax.swing.JRadioButton();
         rb_3_ = new javax.swing.JRadioButton();
         rb_5_ = new javax.swing.JRadioButton();
@@ -98,56 +99,136 @@ public class LogIn extends javax.swing.JFrame {
         jTdescripcionNuevo = new javax.swing.JTextArea();
         jLabel24 = new javax.swing.JLabel();
         jb_modificarLibro = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cb_libros = new javax.swing.JComboBox<>();
         EliminarLibro = new javax.swing.JButton();
+        nuevoGenero = new javax.swing.JComboBox<>();
+        jLabel25 = new javax.swing.JLabel();
+        jt_valor = new javax.swing.JTextField();
         grupoPuntaje = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         usuarioLabel = new javax.swing.JLabel();
         contraseñaLabel = new javax.swing.JLabel();
         usuario = new javax.swing.JTextField();
-        contraseña2 = new javax.swing.JTextField();
+        contraseña = new javax.swing.JTextField();
         CrearUsuario = new javax.swing.JLabel();
-
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        entrar = new javax.swing.JButton();
 
         jLabel1.setText("Usuario: ");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, -1, -1));
 
         jLabel6.setText("Contraseña: ");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, -1, -1));
 
         jLabel3.setText("Fecha de nacimiento: ");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, -1, -1));
 
         jLabel4.setText("Número de Telefono: ");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, -1, -1));
-        jPanel2.add(usuarioNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, 110, -1));
 
         jLabel2.setText("Correo: ");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, -1, -1));
 
         jLabel5.setText("Género Favorito:");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, -1, -1));
-        jPanel2.add(contraseñaNueva, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, 130, -1));
-        jPanel2.add(fechaNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 130, -1));
-        jPanel2.add(numeroTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 130, -1));
-        jPanel2.add(correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, 150, -1));
-        jPanel2.add(generoFavorito, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 240, 160, -1));
 
         bt_crearUsuario.setText("Crear");
-        jPanel2.add(bt_crearUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, 110, -1));
+        bt_crearUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_crearUsuarioMouseClicked(evt);
+            }
+        });
+
+        jLabel26.setText("Nombre Completo:");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addComponent(jLabel1)
+                        .addGap(37, 37, 37)
+                        .addComponent(usuarioNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addComponent(jLabel6)
+                        .addGap(47, 47, 47)
+                        .addComponent(contraseñaNueva, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addComponent(jLabel3)
+                        .addGap(35, 35, 35)
+                        .addComponent(fechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addComponent(jLabel4)
+                        .addGap(26, 26, 26)
+                        .addComponent(numeroTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addComponent(jLabel26)
+                        .addGap(31, 31, 31)
+                        .addComponent(nombreCompleto, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addComponent(jLabel2)
+                        .addGap(50, 50, 50)
+                        .addComponent(correo, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addComponent(jLabel5)
+                        .addGap(38, 38, 38)
+                        .addComponent(generoFavorito, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(170, 170, 170)
+                        .addComponent(bt_crearUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(83, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(usuarioNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6)
+                    .addComponent(contraseñaNueva, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addComponent(fechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addComponent(numeroTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel26)
+                    .addComponent(nombreCompleto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(correo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addComponent(generoFavorito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addComponent(bt_crearUsuario)
+                .addContainerGap(24, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout jFcrearUsuarioLayout = new javax.swing.GroupLayout(jFcrearUsuario.getContentPane());
         jFcrearUsuario.getContentPane().setLayout(jFcrearUsuarioLayout);
         jFcrearUsuarioLayout.setHorizontalGroup(
             jFcrearUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 433, Short.MAX_VALUE)
+            .addGroup(jFcrearUsuarioLayout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jFcrearUsuarioLayout.setVerticalGroup(
             jFcrearUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jFcrearUsuarioLayout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jFadministrador.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -161,7 +242,7 @@ public class LogIn extends javax.swing.JFrame {
         AgregarLibro.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, -1, -1));
 
         jLabel9.setText("Copias Disponible:");
-        AgregarLibro.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, -1, -1));
+        AgregarLibro.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, -1, -1));
 
         jLabel10.setText("Titulo:");
         AgregarLibro.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, -1, -1));
@@ -176,8 +257,8 @@ public class LogIn extends javax.swing.JFrame {
         AgregarLibro.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, -1, -1));
 
         jLabel14.setText("Año Publicación:");
-        AgregarLibro.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 160, -1, -1));
-        AgregarLibro.add(jt_añoPublicacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 160, 80, -1));
+        AgregarLibro.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 160, -1, -1));
+        AgregarLibro.add(jt_añoPublicacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 160, 80, -1));
         AgregarLibro.add(jt_edicion, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 200, 70, -1));
         AgregarLibro.add(jt_autor, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 280, 120, -1));
         AgregarLibro.add(jt_copias, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, 70, -1));
@@ -188,18 +269,6 @@ public class LogIn extends javax.swing.JFrame {
             }
         });
         AgregarLibro.add(jt_titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 150, -1));
-
-        historia.setText("Historia");
-        AgregarLibro.add(historia, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 240, -1, -1));
-
-        fantasia.setText("Fantasía");
-        AgregarLibro.add(fantasia, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, -1, -1));
-
-        romance.setText("Romance");
-        AgregarLibro.add(romance, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 240, -1, -1));
-
-        accion.setText("Acción");
-        AgregarLibro.add(accion, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 240, -1, -1));
 
         grupoPuntaje.add(rb_2);
         rb_2.setText("2");
@@ -214,6 +283,7 @@ public class LogIn extends javax.swing.JFrame {
         AgregarLibro.add(rb_5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 160, -1, -1));
 
         grupoPuntaje.add(rb_1);
+        rb_1.setSelected(true);
         rb_1.setText("1");
         AgregarLibro.add(rb_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, -1, -1));
 
@@ -232,7 +302,19 @@ public class LogIn extends javax.swing.JFrame {
         AgregarLibro.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, 80, 20));
 
         jb_crearLibro.setText("Crear");
-        AgregarLibro.add(jb_crearLibro, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 290, 100, 30));
+        jb_crearLibro.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_crearLibroMouseClicked(evt);
+            }
+        });
+        AgregarLibro.add(jb_crearLibro, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 290, 100, 30));
+
+        genero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Fantansía", "Romance", "Acción", "Historia", " " }));
+        AgregarLibro.add(genero, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, 100, -1));
+
+        jLabel27.setText("Valor:");
+        AgregarLibro.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 240, -1, -1));
+        AgregarLibro.add(valor, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 240, 100, 20));
 
         jTabbedPane1.addTab("Agregar", AgregarLibro);
 
@@ -245,7 +327,7 @@ public class LogIn extends javax.swing.JFrame {
         Modificar.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, -1, -1));
 
         jLabel18.setText("Copias Disponible:");
-        Modificar.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, -1, -1));
+        Modificar.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, -1, -1));
 
         jLabel19.setText("Titulo:");
         Modificar.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, -1, -1));
@@ -261,8 +343,8 @@ public class LogIn extends javax.swing.JFrame {
 
         jLabel23.setText("Año Publicación:");
         Modificar.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 160, -1, -1));
-        Modificar.add(jt_añoPublicacionnuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 160, 80, -1));
-        Modificar.add(jt_edicionNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 200, 70, -1));
+        Modificar.add(jt_añoPublicacionnuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 160, 80, -1));
+        Modificar.add(jt_edicionNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 200, 70, -1));
         Modificar.add(jt_autorNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 280, 120, -1));
         Modificar.add(jt_copiasNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, 70, -1));
 
@@ -272,18 +354,6 @@ public class LogIn extends javax.swing.JFrame {
             }
         });
         Modificar.add(jt_tituloNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 150, -1));
-
-        historia1.setText("Historia");
-        Modificar.add(historia1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 240, -1, -1));
-
-        fantasia1.setText("Fantasía");
-        Modificar.add(fantasia1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, -1, -1));
-
-        romance1.setText("Romance");
-        Modificar.add(romance1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 240, -1, -1));
-
-        accion1.setText("Acción");
-        Modificar.add(accion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 240, -1, -1));
 
         grupoPuntaje.add(rb_2_);
         rb_2_.setText("2");
@@ -298,7 +368,6 @@ public class LogIn extends javax.swing.JFrame {
         Modificar.add(rb_5_, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 160, -1, -1));
 
         grupoPuntaje.add(rb_1_);
-        rb_1_.setSelected(true);
         rb_1_.setText("1");
         Modificar.add(rb_1_, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, -1, -1));
 
@@ -319,11 +388,17 @@ public class LogIn extends javax.swing.JFrame {
         jb_modificarLibro.setText("Modificar");
         Modificar.add(jb_modificarLibro, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 290, 80, 30));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        Modificar.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, -1, -1));
+        Modificar.add(cb_libros, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, 120, -1));
 
         EliminarLibro.setText("Eliminar");
         Modificar.add(EliminarLibro, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 290, -1, 30));
+
+        nuevoGenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Fantansía", "Romance", "Acción", "Historia", " " }));
+        Modificar.add(nuevoGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, 100, -1));
+
+        jLabel25.setText("Valor:");
+        Modificar.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 240, -1, -1));
+        Modificar.add(jt_valor, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 240, 90, 20));
 
         jTabbedPane1.addTab("Modificar", Modificar);
 
@@ -339,7 +414,7 @@ public class LogIn extends javax.swing.JFrame {
         contraseñaLabel.setText("Contraseña: ");
         jPanel1.add(contraseñaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, -1, -1));
         jPanel1.add(usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 140, -1));
-        jPanel1.add(contraseña2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, 140, -1));
+        jPanel1.add(contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, 140, -1));
 
         CrearUsuario.setForeground(new java.awt.Color(0, 0, 255));
         CrearUsuario.setText("Crear Usuario");
@@ -348,7 +423,15 @@ public class LogIn extends javax.swing.JFrame {
                 CrearUsuarioMouseClicked(evt);
             }
         });
-        jPanel1.add(CrearUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, -1, -1));
+        jPanel1.add(CrearUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 210, -1, -1));
+
+        entrar.setText("Entrar");
+        entrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                entrarMouseClicked(evt);
+            }
+        });
+        jPanel1.add(entrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 160, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -367,7 +450,7 @@ public class LogIn extends javax.swing.JFrame {
     private void CrearUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CrearUsuarioMouseClicked
         // TODO add your handling code here:
         jFcrearUsuario.setVisible(true);
-        
+        jFcrearUsuario.setSize(433, 425);
     }//GEN-LAST:event_CrearUsuarioMouseClicked
 
     private void jt_tituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jt_tituloActionPerformed
@@ -377,6 +460,104 @@ public class LogIn extends javax.swing.JFrame {
     private void jt_tituloNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jt_tituloNuevoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jt_tituloNuevoActionPerformed
+
+    private void bt_crearUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_crearUsuarioMouseClicked
+        // TODO add your handling code here:
+        String usuario;
+        String contraseña;
+        String fechanacimiento;
+        String correo;
+        String nombreCompleto;
+        int numerotelefono;
+        String generoLibros;
+        try {
+            usuario = usuarioNuevo.getText();
+            contraseña = contraseñaNueva.getText();
+            fechanacimiento = fechaNacimiento.getText();
+            correo = this.correo.getText();
+            numerotelefono = Integer.parseInt(numeroTelefono.getText());
+            nombreCompleto = this.nombreCompleto.getText();
+            generoLibros = generoFavorito.getText();
+            listaUsuarios.add(new Persona(usuario, contraseña, fechanacimiento, correo, nombreCompleto, generoLibros));
+
+            JOptionPane.showMessageDialog(this, "Usuario almacenado exitosamente");
+            
+            usuarioNuevo.setText("");
+            contraseñaNueva.setText("");
+            fechaNacimiento.setText("");
+            this.correo.setText("");
+            numeroTelefono.setText("");
+            this.nombreCompleto.setText("");
+            generoFavorito.setText("");
+            jFcrearUsuario.setVisible(false);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Ocurrió un error y no se guardaron los datos");
+        }
+    }//GEN-LAST:event_bt_crearUsuarioMouseClicked
+
+    private void jb_crearLibroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_crearLibroMouseClicked
+        // TODO add your handling code here:
+        String titulo;
+        String descripcion;
+        int puntaje = 0;
+        int copias;
+        String genero;
+        double valor = 0;
+        String autor = "";
+        try {
+            titulo = jt_titulo.getText();
+            descripcion = jTdescripcion.getText();
+            if (rb_1.isSelected()) {
+                puntaje = 1;
+            }
+            if (rb_2.isSelected()) {
+                puntaje = 2;
+            }
+            if (rb_3.isSelected()) {
+                puntaje = 3;
+            }
+            if (rb_4.isSelected()) {
+                puntaje = 4;
+            }
+            if (rb_5.isSelected()) {
+                puntaje = 5;
+            }
+            copias = Integer.parseInt(jt_copias.getText());
+            genero = this.genero.getSelectedItem().toString();
+            valor = Double.parseDouble(this.valor.getText());
+
+            listaLibros.add(new Libro(titulo, descripcion, puntaje, copias, genero, valor, autor));
+
+            DefaultComboBoxModel modelo = (DefaultComboBoxModel) cb_libros.getModel();
+            modelo.addElement(new Libro(titulo, descripcion, puntaje, copias, genero, valor, autor));
+            cb_libros.setModel(modelo);
+
+            JOptionPane.showMessageDialog(this, "Libro almacenado exitosamente");
+            
+            jt_titulo.setText("");
+            jTdescripcion.setText("");
+            rb_1.setSelected(true);
+            rb_2.setSelected(false);
+            rb_3.setSelected(false);
+            rb_4.setSelected(false);
+            rb_5.setSelected(false);
+            jt_copias.setText("");
+            this.genero.setSelectedIndex(0);
+            this.valor.setText("");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Ocurrió un error y no se guardaron los datos");
+        }
+    }//GEN-LAST:event_jb_crearLibroMouseClicked
+
+    private void entrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarMouseClicked
+        // TODO add your handling code here:
+        if ((usuario.getText().equals("admin")) && (contraseña.getText().equals("1111"))) {
+            jFadministrador.setSize(460, 400);
+            jFadministrador.setLocationRelativeTo(this);
+            jFadministrador.setVisible(true);
+        }
+
+    }//GEN-LAST:event_entrarMouseClicked
 
     /**
      * @param args the command line arguments
@@ -413,26 +594,24 @@ public class LogIn extends javax.swing.JFrame {
         });
     }
 
+    ArrayList<Libro> listaLibros = new ArrayList();
+    ArrayList<Persona> listaUsuarios = new ArrayList();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel AgregarLibro;
     private javax.swing.JLabel CrearUsuario;
     private javax.swing.JButton EliminarLibro;
     private javax.swing.JPanel Modificar;
-    private javax.swing.JCheckBox accion;
-    private javax.swing.JCheckBox accion1;
     private javax.swing.JButton bt_crearUsuario;
-    private javax.swing.JTextField contraseña2;
+    private javax.swing.JComboBox<String> cb_libros;
+    private javax.swing.JTextField contraseña;
     private javax.swing.JLabel contraseñaLabel;
     private javax.swing.JTextField contraseñaNueva;
     private javax.swing.JTextField correo;
-    private javax.swing.JCheckBox fantasia;
-    private javax.swing.JCheckBox fantasia1;
+    private javax.swing.JButton entrar;
     private javax.swing.JTextField fechaNacimiento;
+    private javax.swing.JComboBox<String> genero;
     private javax.swing.JTextField generoFavorito;
     private javax.swing.ButtonGroup grupoPuntaje;
-    private javax.swing.JCheckBox historia;
-    private javax.swing.JCheckBox historia1;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JFrame jFadministrador;
     private javax.swing.JFrame jFcrearUsuario;
     private javax.swing.JLabel jLabel1;
@@ -452,6 +631,9 @@ public class LogIn extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -478,6 +660,9 @@ public class LogIn extends javax.swing.JFrame {
     private javax.swing.JTextField jt_edicionNuevo;
     private javax.swing.JTextField jt_titulo;
     private javax.swing.JTextField jt_tituloNuevo;
+    private javax.swing.JTextField jt_valor;
+    private javax.swing.JTextField nombreCompleto;
+    private javax.swing.JComboBox<String> nuevoGenero;
     private javax.swing.JTextField numeroTelefono;
     private javax.swing.JRadioButton rb_1;
     private javax.swing.JRadioButton rb_1_;
@@ -489,10 +674,9 @@ public class LogIn extends javax.swing.JFrame {
     private javax.swing.JRadioButton rb_4_;
     private javax.swing.JRadioButton rb_5;
     private javax.swing.JRadioButton rb_5_;
-    private javax.swing.JCheckBox romance;
-    private javax.swing.JCheckBox romance1;
     private javax.swing.JTextField usuario;
     private javax.swing.JLabel usuarioLabel;
     private javax.swing.JTextField usuarioNuevo;
+    private javax.swing.JTextField valor;
     // End of variables declaration//GEN-END:variables
 }
