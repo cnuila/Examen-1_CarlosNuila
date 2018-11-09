@@ -18,11 +18,13 @@ public class Libro {
     private String genero;
     private double valor;
     private String autor;
+    private int año;
+    private int edicion;
 
     public Libro() {
     }
 
-    public Libro(String titulo, String descripcion, int puntaje, int copias, String genero, double valor, String autor) {
+    public Libro(String titulo, String descripcion, int puntaje, int copias, String genero, double valor, String autor, int año, int edicion) {
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.puntaje = puntaje;
@@ -30,6 +32,8 @@ public class Libro {
         this.genero = genero;
         this.valor = valor;
         this.autor = autor;
+        this.año = año;
+        this.edicion = edicion;
     }
 
     public String getTitulo() {
@@ -87,6 +91,24 @@ public class Libro {
     public void setAutor(String autor) {
         this.autor = autor;
     }
+
+    public int getAño() {
+        return año;
+    }
+
+    public void setAño(int año) {
+        this.año = año;
+    }
+
+    public int getEdicion() {
+        return edicion;
+    }
+
+    public void setEdicion(int edicion) {
+        this.edicion = edicion;
+    }
+    
+    
 
     @Override
     public String toString() {
