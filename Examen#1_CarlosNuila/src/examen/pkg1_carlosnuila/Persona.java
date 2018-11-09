@@ -9,14 +9,6 @@ package examen.pkg1_carlosnuila;
  *
  * @author Carlos Nuila
  */
-public class Examen1_CarlosNuila {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
-        
-    }
+public class Persona {
     
 }
