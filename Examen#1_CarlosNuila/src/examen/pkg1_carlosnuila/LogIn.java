@@ -111,6 +111,7 @@ public class LogIn extends javax.swing.JFrame {
         jFUsuario = new javax.swing.JFrame();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
+        cb_librosAdquiridos = new javax.swing.JComboBox<>();
         jPanel5 = new javax.swing.JPanel();
         jLabel28 = new javax.swing.JLabel();
         cb_libroadquiridos = new javax.swing.JComboBox<>();
@@ -141,6 +142,8 @@ public class LogIn extends javax.swing.JFrame {
         jLabel36 = new javax.swing.JLabel();
         nombreCompletoModificar = new javax.swing.JTextField();
         generoFavoritoModificar = new javax.swing.JComboBox<>();
+        jPanel6 = new javax.swing.JPanel();
+        cb_amigosActuales = new javax.swing.JComboBox<>();
         jPanel1 = new javax.swing.JPanel();
         usuarioLabel = new javax.swing.JLabel();
         contraseñaLabel = new javax.swing.JLabel();
@@ -472,15 +475,27 @@ public class LogIn extends javax.swing.JFrame {
             }
         });
 
+        jPanel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel3MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 450, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(114, 114, 114)
+                .addComponent(cb_librosAdquiridos, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(169, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(72, 72, 72)
+                .addComponent(cb_librosAdquiridos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(208, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Lista Libros", jPanel3);
@@ -768,6 +783,31 @@ public class LogIn extends javax.swing.JFrame {
         );
 
         jTabbedPane2.addTab("Modificar", jPanel7);
+
+        cb_amigosActuales.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cb_amigosActualesActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addContainerGap(154, Short.MAX_VALUE)
+                .addComponent(cb_amigosActuales, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(129, 129, 129))
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(82, 82, 82)
+                .addComponent(cb_amigosActuales, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(198, Short.MAX_VALUE))
+        );
+
+        jTabbedPane2.addTab("Eliminar Amigos", jPanel6);
 
         jFUsuario.getContentPane().add(jTabbedPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 455, 344));
 
@@ -1131,9 +1171,21 @@ public class LogIn extends javax.swing.JFrame {
 
     private void cb_solicitudesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_solicitudesItemStateChanged
         // TODO add your handling code here:
-        amigoAceptar = (Persona)cb_solicitudes.getSelectedItem();
-        
+        amigoAceptar = (Persona)cb_solicitudes.getSelectedItem(); 
     }//GEN-LAST:event_cb_solicitudesItemStateChanged
+
+    private void jPanel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseClicked
+        // TODO add your handling code here:
+        DefaultComboBoxModel modelo = (DefaultComboBoxModel) cb_librosAdquiridos.getModel();
+        for (Libro temp : usuarioActual.getListaLibros()) {
+            modelo.addElement(temp);
+        }
+        cb_librosAdquiridos.setModel(modelo);
+    }//GEN-LAST:event_jPanel3MouseClicked
+
+    private void cb_amigosActualesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_amigosActualesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cb_amigosActualesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1190,10 +1242,12 @@ public class LogIn extends javax.swing.JFrame {
     private javax.swing.JButton bt_modificarUsuario;
     private javax.swing.JComboBox<String> cb_Usuarios;
     private javax.swing.JComboBox<String> cb_amigos;
+    private javax.swing.JComboBox<String> cb_amigosActuales;
     private javax.swing.JComboBox<String> cb_genero;
     private javax.swing.JComboBox<String> cb_libroGenero;
     private javax.swing.JComboBox<String> cb_libroadquiridos;
     private javax.swing.JComboBox<String> cb_libros;
+    private javax.swing.JComboBox<String> cb_librosAdquiridos;
     private javax.swing.JComboBox<String> cb_solicitudes;
     private javax.swing.JTextField contraseña;
     private javax.swing.JLabel contraseñaLabel;
@@ -1252,6 +1306,7 @@ public class LogIn extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
