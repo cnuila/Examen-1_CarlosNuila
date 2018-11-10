@@ -144,6 +144,7 @@ public class LogIn extends javax.swing.JFrame {
         generoFavoritoModificar = new javax.swing.JComboBox<>();
         jPanel6 = new javax.swing.JPanel();
         cb_amigosActuales = new javax.swing.JComboBox<>();
+        bt_eliminar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         usuarioLabel = new javax.swing.JLabel();
         contraseñaLabel = new javax.swing.JLabel();
@@ -784,9 +785,27 @@ public class LogIn extends javax.swing.JFrame {
 
         jTabbedPane2.addTab("Modificar", jPanel7);
 
+        jPanel6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel6MouseClicked(evt);
+            }
+        });
+
+        cb_amigosActuales.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cb_amigosActualesItemStateChanged(evt);
+            }
+        });
         cb_amigosActuales.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cb_amigosActualesActionPerformed(evt);
+            }
+        });
+
+        bt_eliminar.setText("Eliminar");
+        bt_eliminar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_eliminarMouseClicked(evt);
             }
         });
 
@@ -794,17 +813,23 @@ public class LogIn extends javax.swing.JFrame {
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addContainerGap(154, Short.MAX_VALUE)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(138, 138, 138)
                 .addComponent(cb_amigosActuales, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(129, 129, 129))
+                .addContainerGap(145, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(bt_eliminar)
+                .addGap(186, 186, 186))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(82, 82, 82)
+                .addGap(81, 81, 81)
                 .addComponent(cb_amigosActuales, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(198, Short.MAX_VALUE))
+                .addGap(81, 81, 81)
+                .addComponent(bt_eliminar)
+                .addContainerGap(95, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Eliminar Amigos", jPanel6);
@@ -1163,6 +1188,7 @@ public class LogIn extends javax.swing.JFrame {
 
     private void jPanel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MouseClicked
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_jPanel7MouseClicked
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
@@ -1186,6 +1212,25 @@ public class LogIn extends javax.swing.JFrame {
     private void cb_amigosActualesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_amigosActualesActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cb_amigosActualesActionPerformed
+
+    private void jPanel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel6MouseClicked
+        // TODO add your handling code here:
+        DefaultComboBoxModel modelo = (DefaultComboBoxModel)cb_amigosActuales.getModel();
+        for (Persona temp : usuarioActual.getListaAmigos()) {
+            modelo.addElement(temp);
+        }
+        cb_amigosActuales.setModel(modelo);
+    }//GEN-LAST:event_jPanel6MouseClicked
+
+    private void bt_eliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_eliminarMouseClicked
+        // TODO add your handling code here:
+        usuarioActual.getListaAmigos().remove(amigoEliminar);
+    }//GEN-LAST:event_bt_eliminarMouseClicked
+
+    private void cb_amigosActualesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_amigosActualesItemStateChanged
+        // TODO add your handling code here:
+        amigoEliminar = (Persona)cb_amigosActuales.getSelectedItem();
+    }//GEN-LAST:event_cb_amigosActualesItemStateChanged
 
     /**
      * @param args the command line arguments
@@ -1230,6 +1275,7 @@ public class LogIn extends javax.swing.JFrame {
     Persona amigoPrestar;
     Persona amigoEnviar;
     Persona amigoAceptar;
+    Persona amigoEliminar;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AgregarAmigo;
     private javax.swing.JPanel AgregarLibro;
@@ -1239,6 +1285,7 @@ public class LogIn extends javax.swing.JFrame {
     private javax.swing.JPanel Modificar;
     private javax.swing.JButton PrestarLibro;
     private javax.swing.JButton bt_crearUsuario;
+    private javax.swing.JButton bt_eliminar;
     private javax.swing.JButton bt_modificarUsuario;
     private javax.swing.JComboBox<String> cb_Usuarios;
     private javax.swing.JComboBox<String> cb_amigos;
