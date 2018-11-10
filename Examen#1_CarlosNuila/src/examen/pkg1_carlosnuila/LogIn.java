@@ -125,7 +125,7 @@ public class LogIn extends javax.swing.JFrame {
         cb_solicitudes = new javax.swing.JComboBox<>();
         panelAgregarAmigos = new javax.swing.JPanel();
         EnviarSolicitud = new javax.swing.JButton();
-        cb_Usuarios = new javax.swing.JComboBox<>();
+        cb_agregarAmigos = new javax.swing.JComboBox<>();
         libroGenero = new javax.swing.JPanel();
         cb_libroGenero = new javax.swing.JComboBox<>();
         jPanel7 = new javax.swing.JPanel();
@@ -519,10 +519,16 @@ public class LogIn extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(72, 72, 72)
                 .addComponent(cb_librosAdquiridos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(208, Short.MAX_VALUE))
+                .addContainerGap(238, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Lista Libros", jPanel3);
+
+        jPanel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel5MouseClicked(evt);
+            }
+        });
 
         jLabel28.setText("Libros:");
 
@@ -580,7 +586,7 @@ public class LogIn extends javax.swing.JFrame {
                     .addComponent(cb_amigos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(51, 51, 51)
                 .addComponent(PrestarLibro)
-                .addContainerGap(104, Short.MAX_VALUE))
+                .addContainerGap(134, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Prestamo Libros", jPanel5);
@@ -623,7 +629,7 @@ public class LogIn extends javax.swing.JFrame {
             .addGroup(panelSolicitudesLayout.createSequentialGroup()
                 .addGap(62, 62, 62)
                 .addComponent(cb_solicitudes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 152, Short.MAX_VALUE)
                 .addComponent(AgregarAmigo)
                 .addGap(73, 73, 73))
         );
@@ -643,9 +649,9 @@ public class LogIn extends javax.swing.JFrame {
             }
         });
 
-        cb_Usuarios.addItemListener(new java.awt.event.ItemListener() {
+        cb_agregarAmigos.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                cb_UsuariosItemStateChanged(evt);
+                cb_agregarAmigosItemStateChanged(evt);
             }
         });
 
@@ -659,18 +665,18 @@ public class LogIn extends javax.swing.JFrame {
                         .addGap(159, 159, 159)
                         .addComponent(EnviarSolicitud))
                     .addGroup(panelAgregarAmigosLayout.createSequentialGroup()
-                        .addGap(148, 148, 148)
-                        .addComponent(cb_Usuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(169, Short.MAX_VALUE))
+                        .addGap(142, 142, 142)
+                        .addComponent(cb_agregarAmigos, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(165, Short.MAX_VALUE))
         );
         panelAgregarAmigosLayout.setVerticalGroup(
             panelAgregarAmigosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAgregarAmigosLayout.createSequentialGroup()
-                .addGap(51, 51, 51)
-                .addComponent(cb_Usuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46)
+                .addGap(52, 52, 52)
+                .addComponent(cb_agregarAmigos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(56, 56, 56)
                 .addComponent(EnviarSolicitud)
-                .addContainerGap(149, Short.MAX_VALUE))
+                .addContainerGap(179, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Agregar Amigos", panelAgregarAmigos);
@@ -695,7 +701,7 @@ public class LogIn extends javax.swing.JFrame {
             .addGroup(libroGeneroLayout.createSequentialGroup()
                 .addGap(86, 86, 86)
                 .addComponent(cb_libroGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(194, Short.MAX_VALUE))
+                .addContainerGap(224, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Libros según genero", libroGenero);
@@ -852,7 +858,7 @@ public class LogIn extends javax.swing.JFrame {
                 .addComponent(cb_amigosActuales, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(81, 81, 81)
                 .addComponent(bt_eliminar)
-                .addContainerGap(95, Short.MAX_VALUE))
+                .addContainerGap(125, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Eliminar Amigos", jPanel6);
@@ -878,7 +884,7 @@ public class LogIn extends javax.swing.JFrame {
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addGap(87, 87, 87)
                 .addComponent(cerrarSesionUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(152, Short.MAX_VALUE))
+                .addContainerGap(182, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Cerrar Sesion", jPanel8);
@@ -952,10 +958,6 @@ public class LogIn extends javax.swing.JFrame {
             nombreCompleto = this.nombreCompleto.getText();
             generoLibros = generoFavorito.getSelectedItem().toString();
             listaUsuarios.add(new Persona(usuario, contraseña, fechanacimiento, correo, nombreCompleto, generoLibros));
-
-            DefaultComboBoxModel modelo = (DefaultComboBoxModel) cb_Usuarios.getModel();
-            modelo.addElement(new Persona(usuario, contraseña, fechanacimiento, correo, nombreCompleto, generoLibros));
-            cb_Usuarios.setModel(modelo);
 
             JOptionPane.showMessageDialog(jFcrearUsuario, "Usuario almacenado exitosamente");
 
@@ -1048,6 +1050,8 @@ public class LogIn extends javax.swing.JFrame {
             boolean usuarioPrueba = false;
             boolean contraseñaPrueba = false;
             for (int i = 0; i < listaUsuarios.size(); i++) {
+                usuarioPrueba = false;
+                contraseñaPrueba = false;
                 if (usuario.getText().equals(listaUsuarios.get(i).getUsuario())) {
                     usuarioPrueba = true;
                 }
@@ -1056,6 +1060,7 @@ public class LogIn extends javax.swing.JFrame {
                 }
                 if (usuarioPrueba && contraseñaPrueba) {
                     usuarioActual = listaUsuarios.get(i);
+                    i = listaUsuarios.size();
                     historial.add(usuarioActual.getUsuario() + " inicio sesión");
                 }
             }
@@ -1208,32 +1213,19 @@ public class LogIn extends javax.swing.JFrame {
         historial.add(usuarioActual.getUsuario() + " le mandó una solicitud de amistad a " + amigoEnviar);
     }//GEN-LAST:event_EnviarSolicitudMouseClicked
 
-    private void cb_UsuariosItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_UsuariosItemStateChanged
-        // TODO add your handling code here:
-        amigoEnviar = (Persona) cb_Usuarios.getSelectedItem();
-    }//GEN-LAST:event_cb_UsuariosItemStateChanged
-
     private void panelAgregarAmigosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelAgregarAmigosMouseClicked
         // TODO add your handling code here:
-        DefaultComboBoxModel modelo = (DefaultComboBoxModel) cb_Usuarios.getModel();
+        DefaultComboBoxModel modelo = (DefaultComboBoxModel) cb_agregarAmigos.getModel();
+        cb_agregarAmigos.removeAllItems();
         for (Persona temp : listaUsuarios) {
             if (!(temp.getUsuario().equals(usuarioActual.getUsuario()))) {
                 modelo.addElement(temp);
             }
         }
-        cb_Usuarios.setModel(modelo);
+        cb_agregarAmigos.setModel(modelo);
 
 
     }//GEN-LAST:event_panelAgregarAmigosMouseClicked
-
-    private void panelSolicitudesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelSolicitudesMouseClicked
-        // TODO add your handling code here:
-        DefaultComboBoxModel modelo = (DefaultComboBoxModel) cb_solicitudes.getModel();
-        for (Persona temp : usuarioActual.getAmigosEspera()) {
-            modelo.addElement(temp);
-        }
-        cb_solicitudes.setModel(modelo);
-    }//GEN-LAST:event_panelSolicitudesMouseClicked
 
     private void AgregarAmigoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AgregarAmigoMouseClicked
         // TODO add your handling code here:
@@ -1245,6 +1237,7 @@ public class LogIn extends javax.swing.JFrame {
     private void libroGeneroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_libroGeneroMouseClicked
         // TODO add your handling code here:
         DefaultComboBoxModel modelo = (DefaultComboBoxModel) cb_libroGenero.getModel();
+        cb_libroGenero.removeAllItems();
         for (int i = 0; i < listaLibros.size(); i++) {
             if (usuarioActual.getGeneroLibros().equals(listaLibros.get(i).getGenero())) {
                 modelo.addElement(listaLibros.get(i));
@@ -1272,12 +1265,13 @@ public class LogIn extends javax.swing.JFrame {
 
     private void cb_solicitudesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_solicitudesItemStateChanged
         // TODO add your handling code here:
-        amigoAceptar = (Persona) cb_solicitudes.getSelectedItem();
+        amigoAceptar = (Persona)cb_solicitudes.getSelectedItem();
     }//GEN-LAST:event_cb_solicitudesItemStateChanged
 
     private void jPanel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseClicked
         // TODO add your handling code here:
         DefaultComboBoxModel modelo = (DefaultComboBoxModel) cb_librosAdquiridos.getModel();
+        cb_librosAdquiridos.removeAllItems();
         for (Libro temp : usuarioActual.getListaLibros()) {
             modelo.addElement(temp);
         }
@@ -1291,6 +1285,7 @@ public class LogIn extends javax.swing.JFrame {
     private void jPanel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel6MouseClicked
         // TODO add your handling code here:
         DefaultComboBoxModel modelo = (DefaultComboBoxModel) cb_amigosActuales.getModel();
+        cb_amigosActuales.removeAllItems();
         for (Persona temp : usuarioActual.getListaAmigos()) {
             modelo.addElement(temp);
         }
@@ -1313,6 +1308,37 @@ public class LogIn extends javax.swing.JFrame {
         jFUsuario.setVisible(false);
         this.setVisible(true);
     }//GEN-LAST:event_cerrarSesionUsuarioMouseClicked
+
+    private void cb_agregarAmigosItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_agregarAmigosItemStateChanged
+        // TODO add your handling code here:
+        amigoEnviar = (Persona) cb_agregarAmigos.getSelectedItem();
+    }//GEN-LAST:event_cb_agregarAmigosItemStateChanged
+
+    private void panelSolicitudesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelSolicitudesMouseClicked
+        // TODO add your handling code here:
+        DefaultComboBoxModel modelo = (DefaultComboBoxModel) cb_solicitudes.getModel();
+        cb_solicitudes.removeAllItems();
+        for (int i = 0; i < usuarioActual.getAmigosEspera().size(); i++) {
+            modelo.addElement(usuarioActual.getAmigosEspera().get(i));
+        }
+        cb_solicitudes.setModel(modelo);
+    }//GEN-LAST:event_panelSolicitudesMouseClicked
+
+    private void jPanel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel5MouseClicked
+        // TODO add your handling code here:
+        DefaultComboBoxModel modelo = (DefaultComboBoxModel) cb_libroadquiridos.getModel();
+        cb_libroadquiridos.removeAllItems();
+        for (Libro temp : usuarioActual.getListaLibros()) {
+            modelo.addElement(temp);
+        }
+        cb_libroadquiridos.setModel(modelo);
+        DefaultComboBoxModel modelo2 = (DefaultComboBoxModel) cb_amigos.getModel();
+        cb_amigos.removeAllItems();
+        for (Persona temp : usuarioActual.getListaAmigos()) {
+            modelo2.addElement(temp);
+        }
+        cb_amigos.setModel(modelo2);
+    }//GEN-LAST:event_jPanel5MouseClicked
 
     /**
      * @param args the command line arguments
@@ -1370,7 +1396,7 @@ public class LogIn extends javax.swing.JFrame {
     private javax.swing.JButton bt_crearUsuario;
     private javax.swing.JButton bt_eliminar;
     private javax.swing.JButton bt_modificarUsuario;
-    private javax.swing.JComboBox<String> cb_Usuarios;
+    private javax.swing.JComboBox<String> cb_agregarAmigos;
     private javax.swing.JComboBox<String> cb_amigos;
     private javax.swing.JComboBox<String> cb_amigosActuales;
     private javax.swing.JComboBox<String> cb_genero;
