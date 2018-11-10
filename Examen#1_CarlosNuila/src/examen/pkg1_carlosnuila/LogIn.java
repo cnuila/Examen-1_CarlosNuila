@@ -105,26 +105,26 @@ public class LogIn extends javax.swing.JFrame {
         nuevoGenero = new javax.swing.JComboBox<>();
         jLabel25 = new javax.swing.JLabel();
         jt_valor = new javax.swing.JTextField();
+        jPanel4 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
         grupoPuntaje = new javax.swing.ButtonGroup();
         jFUsuario = new javax.swing.JFrame();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        tablaLibrosAdquiridos = new javax.swing.JTable();
-        actualizar = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jLabel28 = new javax.swing.JLabel();
         cb_libroadquiridos = new javax.swing.JComboBox<>();
         jLabel29 = new javax.swing.JLabel();
         cb_amigos = new javax.swing.JComboBox<>();
         PrestarLibro = new javax.swing.JButton();
-        jPanel4 = new javax.swing.JPanel();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        panelSolicitudes = new javax.swing.JPanel();
         AgregarAmigo = new javax.swing.JButton();
-        jPanel6 = new javax.swing.JPanel();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        cb_solicitudes = new javax.swing.JComboBox<>();
+        panelAgregarAmigos = new javax.swing.JPanel();
+        EnviarSolicitud = new javax.swing.JButton();
+        cb_Usuarios = new javax.swing.JComboBox<>();
+        libroGenero = new javax.swing.JPanel();
+        cb_libroGenero = new javax.swing.JComboBox<>();
         jPanel7 = new javax.swing.JPanel();
         jLabel30 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
@@ -436,43 +436,39 @@ public class LogIn extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Modificar", Modificar);
 
+        jButton1.setText("Cerrar Sesión");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(131, 131, 131)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(155, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(119, 119, 119)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(130, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Cerrar Sesión", jPanel4);
+
         jFadministrador.getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 447, 352));
 
         jFUsuario.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        tablaLibrosAdquiridos.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "No.", "Nombre Libro"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane3.setViewportView(tablaLibrosAdquiridos);
-        if (tablaLibrosAdquiridos.getColumnModel().getColumnCount() > 0) {
-            tablaLibrosAdquiridos.getColumnModel().getColumn(0).setHeaderValue("No.");
-            tablaLibrosAdquiridos.getColumnModel().getColumn(1).setHeaderValue("Nombre Libro");
-        }
-
-        actualizar.setText("Actualizar");
-        actualizar.addMouseListener(new java.awt.event.MouseAdapter() {
+        jTabbedPane2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                actualizarMouseClicked(evt);
+                jTabbedPane2MouseClicked(evt);
             }
         });
 
@@ -480,23 +476,11 @@ public class LogIn extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(32, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(actualizar)
-                .addGap(47, 47, 47))
+            .addGap(0, 450, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(actualizar)
-                .addContainerGap(38, Short.MAX_VALUE))
+            .addGap(0, 300, Short.MAX_VALUE)
         );
 
         jTabbedPane2.addTab("Lista Libros", jPanel3);
@@ -518,6 +502,11 @@ public class LogIn extends javax.swing.JFrame {
         });
 
         PrestarLibro.setText("Prestar");
+        PrestarLibro.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                PrestarLibroMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -552,100 +541,131 @@ public class LogIn extends javax.swing.JFrame {
                     .addComponent(cb_amigos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(51, 51, 51)
                 .addComponent(PrestarLibro)
-                .addContainerGap(145, Short.MAX_VALUE))
+                .addContainerGap(104, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Prestamo Libros", jPanel5);
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Nombre Amigo"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
+        panelSolicitudes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelSolicitudesMouseClicked(evt);
             }
         });
-        jScrollPane4.setViewportView(jTable2);
 
         AgregarAmigo.setText("Agregar");
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
-                .addComponent(AgregarAmigo)
-                .addGap(42, 42, 42))
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(141, 141, 141)
-                        .addComponent(AgregarAmigo)))
-                .addContainerGap(72, Short.MAX_VALUE))
-        );
-
-        jTabbedPane2.addTab("Agregar Amigos", jPanel4);
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Nombre Libro", "Género"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
+        AgregarAmigo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                AgregarAmigoMouseClicked(evt);
             }
         });
-        jScrollPane5.setViewportView(jTable1);
 
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+        cb_solicitudes.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cb_solicitudesItemStateChanged(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelSolicitudesLayout = new javax.swing.GroupLayout(panelSolicitudes);
+        panelSolicitudes.setLayout(panelSolicitudesLayout);
+        panelSolicitudesLayout.setHorizontalGroup(
+            panelSolicitudesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelSolicitudesLayout.createSequentialGroup()
+                .addGroup(panelSolicitudesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelSolicitudesLayout.createSequentialGroup()
+                        .addGap(183, 183, 183)
+                        .addComponent(AgregarAmigo))
+                    .addGroup(panelSolicitudesLayout.createSequentialGroup()
+                        .addGap(130, 130, 130)
+                        .addComponent(cb_solicitudes, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(139, Short.MAX_VALUE))
         );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32))
+        panelSolicitudesLayout.setVerticalGroup(
+            panelSolicitudesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelSolicitudesLayout.createSequentialGroup()
+                .addGap(62, 62, 62)
+                .addComponent(cb_solicitudes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
+                .addComponent(AgregarAmigo)
+                .addGap(73, 73, 73))
         );
 
-        jTabbedPane2.addTab("Libros según genero", jPanel6);
+        jTabbedPane2.addTab("Solicitudes", panelSolicitudes);
+
+        panelAgregarAmigos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelAgregarAmigosMouseClicked(evt);
+            }
+        });
+
+        EnviarSolicitud.setText("Enviar Solicitud");
+        EnviarSolicitud.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                EnviarSolicitudMouseClicked(evt);
+            }
+        });
+
+        cb_Usuarios.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cb_UsuariosItemStateChanged(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelAgregarAmigosLayout = new javax.swing.GroupLayout(panelAgregarAmigos);
+        panelAgregarAmigos.setLayout(panelAgregarAmigosLayout);
+        panelAgregarAmigosLayout.setHorizontalGroup(
+            panelAgregarAmigosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelAgregarAmigosLayout.createSequentialGroup()
+                .addGroup(panelAgregarAmigosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelAgregarAmigosLayout.createSequentialGroup()
+                        .addGap(159, 159, 159)
+                        .addComponent(EnviarSolicitud))
+                    .addGroup(panelAgregarAmigosLayout.createSequentialGroup()
+                        .addGap(148, 148, 148)
+                        .addComponent(cb_Usuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(169, Short.MAX_VALUE))
+        );
+        panelAgregarAmigosLayout.setVerticalGroup(
+            panelAgregarAmigosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAgregarAmigosLayout.createSequentialGroup()
+                .addGap(51, 51, 51)
+                .addComponent(cb_Usuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(46, 46, 46)
+                .addComponent(EnviarSolicitud)
+                .addContainerGap(149, Short.MAX_VALUE))
+        );
+
+        jTabbedPane2.addTab("Agregar Amigos", panelAgregarAmigos);
+
+        libroGenero.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                libroGeneroMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout libroGeneroLayout = new javax.swing.GroupLayout(libroGenero);
+        libroGenero.setLayout(libroGeneroLayout);
+        libroGeneroLayout.setHorizontalGroup(
+            libroGeneroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(libroGeneroLayout.createSequentialGroup()
+                .addGap(133, 133, 133)
+                .addComponent(cb_libroGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(155, Short.MAX_VALUE))
+        );
+        libroGeneroLayout.setVerticalGroup(
+            libroGeneroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(libroGeneroLayout.createSequentialGroup()
+                .addGap(86, 86, 86)
+                .addComponent(cb_libroGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(194, Short.MAX_VALUE))
+        );
+
+        jTabbedPane2.addTab("Libros según genero", libroGenero);
+
+        jPanel7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel7MouseClicked(evt);
+            }
+        });
 
         jLabel30.setText("Usuario: ");
 
@@ -704,10 +724,12 @@ public class LogIn extends javax.swing.JFrame {
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addComponent(jLabel35)
                         .addGap(28, 28, 28)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(generoFavoritoModificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(bt_modificarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(generoFavoritoModificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(120, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(bt_modificarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -740,9 +762,9 @@ public class LogIn extends javax.swing.JFrame {
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel35)
                     .addComponent(generoFavoritoModificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(bt_modificarUsuario)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addGap(44, 44, 44))
         );
 
         jTabbedPane2.addTab("Modificar", jPanel7);
@@ -817,7 +839,11 @@ public class LogIn extends javax.swing.JFrame {
             generoLibros = generoFavorito.getSelectedItem().toString();
             listaUsuarios.add(new Persona(usuario, contraseña, fechanacimiento, correo, nombreCompleto, generoLibros));
 
-            JOptionPane.showMessageDialog(this, "Usuario almacenado exitosamente");
+            DefaultComboBoxModel modelo = (DefaultComboBoxModel)cb_Usuarios.getModel();
+            modelo.addElement(new Persona(usuario, contraseña, fechanacimiento, correo, nombreCompleto, generoLibros));
+            cb_Usuarios.setModel(modelo);
+            
+            JOptionPane.showMessageDialog(jFcrearUsuario, "Usuario almacenado exitosamente");
 
             usuarioNuevo.setText("");
             contraseñaNueva.setText("");
@@ -901,6 +927,7 @@ public class LogIn extends javax.swing.JFrame {
             jFadministrador.setSize(460, 400);
             jFadministrador.setLocationRelativeTo(this);
             jFadministrador.setVisible(true);
+            this.setVisible(false);
         } else {
             boolean usuarioPrueba = false;
             boolean contraseñaPrueba = false;
@@ -919,6 +946,7 @@ public class LogIn extends javax.swing.JFrame {
                 jFUsuario.setSize(455, 344);
                 jFUsuario.setLocationRelativeTo(this);
                 jFUsuario.setVisible(true);
+                this.setVisible(false);
 
             }
         }
@@ -1020,32 +1048,92 @@ public class LogIn extends javax.swing.JFrame {
         listaLibros.remove(cb_libros.getSelectedIndex());
     }//GEN-LAST:event_EliminarLibroMouseClicked
 
-    private void actualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_actualizarMouseClicked
-        // TODO add your handling code here:
-        DefaultTableModel modelo = (DefaultTableModel) tablaLibrosAdquiridos.getModel();
-
-        Object[] listaLibrosUsuario = new Object[2];
-        for (int i = 0; i < usuarioActual.getListaLibros().size(); i++) {
-            listaLibrosUsuario[0] = i;
-            listaLibrosUsuario[1] = usuarioActual.getListaLibros().get(i).getTitulo();
-            modelo.addRow(listaLibrosUsuario);
-        }
-        tablaLibrosAdquiridos.setModel(modelo);
-
-    }//GEN-LAST:event_actualizarMouseClicked
-
     private void bt_modificarUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_modificarUsuarioMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_bt_modificarUsuarioMouseClicked
 
     private void cb_libroadquiridosItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_libroadquiridosItemStateChanged
         // TODO add your handling code here:
-        posicionLibroprestar = cb_libroadquiridos.getSelectedIndex();
+        libroPrestar = (Libro) cb_libroadquiridos.getSelectedItem();
     }//GEN-LAST:event_cb_libroadquiridosItemStateChanged
 
     private void cb_amigosItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_amigosItemStateChanged
-        posicionAmigoprestar = cb_amigos.getSelectedIndex();
+        amigoPrestar = (Persona) cb_amigos.getSelectedItem();
     }//GEN-LAST:event_cb_amigosItemStateChanged
+
+    private void PrestarLibroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PrestarLibroMouseClicked
+        // TODO add your handling code here:
+        amigoPrestar.getListaLibros().add(libroPrestar);
+        usuarioActual.getListaLibros().remove(libroPrestar);
+        JOptionPane.showMessageDialog(jFUsuario, "Ha prestado un libro exitosamente");
+    }//GEN-LAST:event_PrestarLibroMouseClicked
+
+    private void jTabbedPane2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTabbedPane2MouseClicked
+
+    private void EnviarSolicitudMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EnviarSolicitudMouseClicked
+        // TODO add your handling code here:
+        amigoEnviar.getAmigosEspera().add(usuarioActual);
+        JOptionPane.showMessageDialog(jFUsuario, "Ha enviado una solicitud de amistad exitosamente");
+    }//GEN-LAST:event_EnviarSolicitudMouseClicked
+
+    private void cb_UsuariosItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_UsuariosItemStateChanged
+        // TODO add your handling code here:
+        amigoEnviar = (Persona) cb_Usuarios.getSelectedItem();
+    }//GEN-LAST:event_cb_UsuariosItemStateChanged
+
+    private void panelAgregarAmigosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelAgregarAmigosMouseClicked
+        // TODO add your handling code here:
+        DefaultComboBoxModel modelo = (DefaultComboBoxModel) cb_Usuarios.getModel();
+        for (Persona temp : listaUsuarios) {
+            if (!(temp.getUsuario().equals(usuarioActual.getUsuario()))) {
+                modelo.addElement(temp);
+            }
+        }
+        cb_Usuarios.setModel(modelo);
+        
+
+    }//GEN-LAST:event_panelAgregarAmigosMouseClicked
+
+    private void panelSolicitudesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelSolicitudesMouseClicked
+        // TODO add your handling code here:
+        DefaultComboBoxModel modelo = (DefaultComboBoxModel)cb_solicitudes.getModel();
+        for (Persona temp : usuarioActual.getAmigosEspera()) {
+            modelo.addElement(temp);
+        }
+    }//GEN-LAST:event_panelSolicitudesMouseClicked
+
+    private void AgregarAmigoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AgregarAmigoMouseClicked
+        // TODO add your handling code here:
+        usuarioActual.getListaAmigos().add(amigoAceptar);
+        usuarioActual.getAmigosEspera().remove(amigoAceptar);
+    }//GEN-LAST:event_AgregarAmigoMouseClicked
+
+    private void libroGeneroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_libroGeneroMouseClicked
+        // TODO add your handling code here:
+        DefaultComboBoxModel modelo = (DefaultComboBoxModel)cb_libroGenero.getModel();
+        for (int i = 0; i < listaLibros.size(); i++) {
+            if (usuarioActual.getGeneroLibros().equals(listaLibros.get(i).getGenero())){
+                modelo.addElement(listaLibros.get(i));
+            }
+        }
+        cb_libroGenero.setModel(modelo);
+    }//GEN-LAST:event_libroGeneroMouseClicked
+
+    private void jPanel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanel7MouseClicked
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void cb_solicitudesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_solicitudesItemStateChanged
+        // TODO add your handling code here:
+        amigoAceptar = (Persona)cb_solicitudes.getSelectedItem();
+        
+    }//GEN-LAST:event_cb_solicitudesItemStateChanged
 
     /**
      * @param args the command line arguments
@@ -1086,22 +1174,27 @@ public class LogIn extends javax.swing.JFrame {
     ArrayList<Persona> listaUsuarios = new ArrayList();
     int libroModificar;
     Persona usuarioActual;
-    int posicionLibroprestar;
-    int posicionAmigoprestar;
+    Libro libroPrestar;
+    Persona amigoPrestar;
+    Persona amigoEnviar;
+    Persona amigoAceptar;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AgregarAmigo;
     private javax.swing.JPanel AgregarLibro;
     private javax.swing.JLabel CrearUsuario;
     private javax.swing.JButton EliminarLibro;
+    private javax.swing.JButton EnviarSolicitud;
     private javax.swing.JPanel Modificar;
     private javax.swing.JButton PrestarLibro;
-    private javax.swing.JButton actualizar;
     private javax.swing.JButton bt_crearUsuario;
     private javax.swing.JButton bt_modificarUsuario;
+    private javax.swing.JComboBox<String> cb_Usuarios;
     private javax.swing.JComboBox<String> cb_amigos;
     private javax.swing.JComboBox<String> cb_genero;
+    private javax.swing.JComboBox<String> cb_libroGenero;
     private javax.swing.JComboBox<String> cb_libroadquiridos;
     private javax.swing.JComboBox<String> cb_libros;
+    private javax.swing.JComboBox<String> cb_solicitudes;
     private javax.swing.JTextField contraseña;
     private javax.swing.JLabel contraseñaLabel;
     private javax.swing.JTextField contraseñaModificar;
@@ -1114,6 +1207,7 @@ public class LogIn extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> generoFavorito;
     private javax.swing.JComboBox<String> generoFavoritoModificar;
     private javax.swing.ButtonGroup grupoPuntaje;
+    private javax.swing.JButton jButton1;
     private javax.swing.JFrame jFUsuario;
     private javax.swing.JFrame jFadministrador;
     private javax.swing.JFrame jFcrearUsuario;
@@ -1158,17 +1252,11 @@ public class LogIn extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
     private javax.swing.JTextArea jTdescripcion;
     private javax.swing.JTextArea jTdescripcionNuevo;
     private javax.swing.JTextField j_valor;
@@ -1185,11 +1273,14 @@ public class LogIn extends javax.swing.JFrame {
     private javax.swing.JTextField jt_titulo;
     private javax.swing.JTextField jt_tituloNuevo;
     private javax.swing.JTextField jt_valor;
+    private javax.swing.JPanel libroGenero;
     private javax.swing.JTextField nombreCompleto;
     private javax.swing.JTextField nombreCompletoModificar;
     private javax.swing.JComboBox<String> nuevoGenero;
     private javax.swing.JTextField numeroTelefono;
     private javax.swing.JTextField numeroTelefonoModificar;
+    private javax.swing.JPanel panelAgregarAmigos;
+    private javax.swing.JPanel panelSolicitudes;
     private javax.swing.JRadioButton rb_1;
     private javax.swing.JRadioButton rb_1_;
     private javax.swing.JRadioButton rb_2;
@@ -1200,7 +1291,6 @@ public class LogIn extends javax.swing.JFrame {
     private javax.swing.JRadioButton rb_4_;
     private javax.swing.JRadioButton rb_5;
     private javax.swing.JRadioButton rb_5_;
-    private javax.swing.JTable tablaLibrosAdquiridos;
     private javax.swing.JTextField usuario;
     private javax.swing.JLabel usuarioLabel;
     private javax.swing.JTextField usuarioModificar;

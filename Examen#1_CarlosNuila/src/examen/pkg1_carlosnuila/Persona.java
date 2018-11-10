@@ -22,6 +22,7 @@ public class Persona {
     private String generoLibros;
     private ArrayList<Libro> listaLibros = new ArrayList();
     private ArrayList<Persona> listaAmigos = new ArrayList();
+    private ArrayList<Persona> amigosEspera = new ArrayList();
 
     public Persona(String usuario, String contraseña, String fechaNacimiento, String correo, String nombreCompleto, String generoLibros) {
         this.usuario = usuario;
@@ -97,6 +98,22 @@ public class Persona {
 
     public void setListaAmigos(ArrayList<Persona> listaAmigos) {
         this.listaAmigos = listaAmigos;
+    }
+
+    public int getNumeroTelefono() {
+        return numeroTelefono;
+    }
+
+    public void setNumeroTelefono(int numeroTelefono) {
+        this.numeroTelefono = numeroTelefono;
+    }
+
+    public ArrayList<Persona> getAmigosEspera() {
+        return amigosEspera;
+    }
+
+    public void setAmigosEspera(ArrayList<Persona> amigosEspera) {
+        this.amigosEspera = amigosEspera;
     }
 
     @Override
