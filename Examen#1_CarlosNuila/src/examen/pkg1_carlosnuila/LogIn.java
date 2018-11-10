@@ -105,6 +105,8 @@ public class LogIn extends javax.swing.JFrame {
         nuevoGenero = new javax.swing.JComboBox<>();
         jLabel25 = new javax.swing.JLabel();
         jt_valor = new javax.swing.JTextField();
+        jPanel9 = new javax.swing.JPanel();
+        cb_historial = new javax.swing.JComboBox<>();
         jPanel4 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         grupoPuntaje = new javax.swing.ButtonGroup();
@@ -145,6 +147,8 @@ public class LogIn extends javax.swing.JFrame {
         jPanel6 = new javax.swing.JPanel();
         cb_amigosActuales = new javax.swing.JComboBox<>();
         bt_eliminar = new javax.swing.JButton();
+        jPanel8 = new javax.swing.JPanel();
+        cerrarSesionUsuario = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         usuarioLabel = new javax.swing.JLabel();
         contraseñaLabel = new javax.swing.JLabel();
@@ -439,6 +443,25 @@ public class LogIn extends javax.swing.JFrame {
         Modificar.add(jt_valor, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 240, 90, 30));
 
         jTabbedPane1.addTab("Modificar", Modificar);
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(cb_historial, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(30, Short.MAX_VALUE))
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGap(46, 46, 46)
+                .addComponent(cb_historial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(258, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Historial", jPanel9);
 
         jButton1.setText("Cerrar Sesión");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -834,6 +857,32 @@ public class LogIn extends javax.swing.JFrame {
 
         jTabbedPane2.addTab("Eliminar Amigos", jPanel6);
 
+        cerrarSesionUsuario.setText("Cerrar Sesion");
+        cerrarSesionUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cerrarSesionUsuarioMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGap(170, 170, 170)
+                .addComponent(cerrarSesionUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(172, Short.MAX_VALUE))
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGap(87, 87, 87)
+                .addComponent(cerrarSesionUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(152, Short.MAX_VALUE))
+        );
+
+        jTabbedPane2.addTab("Cerrar Sesion", jPanel8);
+
         jFUsuario.getContentPane().add(jTabbedPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 455, 344));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -904,10 +953,10 @@ public class LogIn extends javax.swing.JFrame {
             generoLibros = generoFavorito.getSelectedItem().toString();
             listaUsuarios.add(new Persona(usuario, contraseña, fechanacimiento, correo, nombreCompleto, generoLibros));
 
-            DefaultComboBoxModel modelo = (DefaultComboBoxModel)cb_Usuarios.getModel();
+            DefaultComboBoxModel modelo = (DefaultComboBoxModel) cb_Usuarios.getModel();
             modelo.addElement(new Persona(usuario, contraseña, fechanacimiento, correo, nombreCompleto, generoLibros));
             cb_Usuarios.setModel(modelo);
-            
+
             JOptionPane.showMessageDialog(jFcrearUsuario, "Usuario almacenado exitosamente");
 
             usuarioNuevo.setText("");
@@ -918,6 +967,7 @@ public class LogIn extends javax.swing.JFrame {
             this.nombreCompleto.setText("");
             generoFavorito.setSelectedIndex(0);
             jFcrearUsuario.setVisible(false);
+            historial.add("Se agregó un usuario");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Ocurrió un error y no se guardaron los datos");
         }
@@ -967,6 +1017,7 @@ public class LogIn extends javax.swing.JFrame {
             cb_libros.setModel(modelo);
 
             JOptionPane.showMessageDialog(jFadministrador, "Libro almacenado exitosamente");
+            historial.add("Se agrego un libro");
 
             jt_titulo.setText("");
             jTdescripcion.setText("");
@@ -1005,6 +1056,7 @@ public class LogIn extends javax.swing.JFrame {
                 }
                 if (usuarioPrueba && contraseñaPrueba) {
                     usuarioActual = listaUsuarios.get(i);
+                    historial.add(usuarioActual.getUsuario() + " inicio sesión");
                 }
             }
             if (usuarioPrueba && contraseñaPrueba) {
@@ -1073,6 +1125,8 @@ public class LogIn extends javax.swing.JFrame {
             autor = jt_autorNuevo.getText();
             listaLibros.get(libroModificar).setAutor(autor);
 
+            historial.add(listaLibros.get(libroModificar).getTitulo() + " fue modificado");
+
             jt_tituloNuevo.setText("");
             jTdescripcionNuevo.setText("");
             rb_1.setSelected(true);
@@ -1108,6 +1162,7 @@ public class LogIn extends javax.swing.JFrame {
     private void EliminarLibroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EliminarLibroMouseClicked
         // TODO add your handling code here:
         DefaultComboBoxModel modelo = (DefaultComboBoxModel) cb_libros.getModel();
+        historial.add(((Libro) cb_libros.getSelectedItem()).getTitulo() + " fue eliminado");
         modelo.removeElement(cb_libros.getSelectedIndex());
         cb_libros.setModel(modelo);
         listaLibros.remove(cb_libros.getSelectedIndex());
@@ -1122,6 +1177,7 @@ public class LogIn extends javax.swing.JFrame {
         usuarioActual.setCorreo(correoModificar.getText());
         usuarioActual.setNombreCompleto(nombreCompletoModificar.getText());
         usuarioActual.setGeneroLibros(generoFavoritoModificar.getSelectedItem().toString());
+        historial.add(usuarioActual.getUsuario() + " actualizó su información");
     }//GEN-LAST:event_bt_modificarUsuarioMouseClicked
 
     private void cb_libroadquiridosItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_libroadquiridosItemStateChanged
@@ -1138,6 +1194,7 @@ public class LogIn extends javax.swing.JFrame {
         amigoPrestar.getListaLibros().add(libroPrestar);
         usuarioActual.getListaLibros().remove(libroPrestar);
         JOptionPane.showMessageDialog(jFUsuario, "Ha prestado un libro exitosamente");
+        historial.add(usuarioActual.getUsuario() + " le ha prestado un libro a " + amigoPrestar.getUsuario());
     }//GEN-LAST:event_PrestarLibroMouseClicked
 
     private void jTabbedPane2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane2MouseClicked
@@ -1148,6 +1205,7 @@ public class LogIn extends javax.swing.JFrame {
         // TODO add your handling code here:
         amigoEnviar.getAmigosEspera().add(usuarioActual);
         JOptionPane.showMessageDialog(jFUsuario, "Ha enviado una solicitud de amistad exitosamente");
+        historial.add(usuarioActual.getUsuario() + " le mandó una solicitud de amistad a " + amigoEnviar);
     }//GEN-LAST:event_EnviarSolicitudMouseClicked
 
     private void cb_UsuariosItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_UsuariosItemStateChanged
@@ -1164,29 +1222,31 @@ public class LogIn extends javax.swing.JFrame {
             }
         }
         cb_Usuarios.setModel(modelo);
-        
+
 
     }//GEN-LAST:event_panelAgregarAmigosMouseClicked
 
     private void panelSolicitudesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelSolicitudesMouseClicked
         // TODO add your handling code here:
-        DefaultComboBoxModel modelo = (DefaultComboBoxModel)cb_solicitudes.getModel();
+        DefaultComboBoxModel modelo = (DefaultComboBoxModel) cb_solicitudes.getModel();
         for (Persona temp : usuarioActual.getAmigosEspera()) {
             modelo.addElement(temp);
         }
+        cb_solicitudes.setModel(modelo);
     }//GEN-LAST:event_panelSolicitudesMouseClicked
 
     private void AgregarAmigoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AgregarAmigoMouseClicked
         // TODO add your handling code here:
         usuarioActual.getListaAmigos().add(amigoAceptar);
         usuarioActual.getAmigosEspera().remove(amigoAceptar);
+        historial.add(usuarioActual.getUsuario() + " agregó a " + amigoAceptar);
     }//GEN-LAST:event_AgregarAmigoMouseClicked
 
     private void libroGeneroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_libroGeneroMouseClicked
         // TODO add your handling code here:
-        DefaultComboBoxModel modelo = (DefaultComboBoxModel)cb_libroGenero.getModel();
+        DefaultComboBoxModel modelo = (DefaultComboBoxModel) cb_libroGenero.getModel();
         for (int i = 0; i < listaLibros.size(); i++) {
-            if (usuarioActual.getGeneroLibros().equals(listaLibros.get(i).getGenero())){
+            if (usuarioActual.getGeneroLibros().equals(listaLibros.get(i).getGenero())) {
                 modelo.addElement(listaLibros.get(i));
             }
         }
@@ -1201,16 +1261,18 @@ public class LogIn extends javax.swing.JFrame {
         numeroTelefonoModificar.setText(String.valueOf(usuarioActual.getNumeroTelefono()));
         correoModificar.setText(usuarioActual.getCorreo());
         nombreCompletoModificar.setText(usuarioActual.getNombreCompleto());
-        
+
     }//GEN-LAST:event_jPanel7MouseClicked
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
+        jFadministrador.setVisible(false);
+        this.setVisible(true);
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void cb_solicitudesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_solicitudesItemStateChanged
         // TODO add your handling code here:
-        amigoAceptar = (Persona)cb_solicitudes.getSelectedItem(); 
+        amigoAceptar = (Persona) cb_solicitudes.getSelectedItem();
     }//GEN-LAST:event_cb_solicitudesItemStateChanged
 
     private void jPanel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseClicked
@@ -1228,7 +1290,7 @@ public class LogIn extends javax.swing.JFrame {
 
     private void jPanel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel6MouseClicked
         // TODO add your handling code here:
-        DefaultComboBoxModel modelo = (DefaultComboBoxModel)cb_amigosActuales.getModel();
+        DefaultComboBoxModel modelo = (DefaultComboBoxModel) cb_amigosActuales.getModel();
         for (Persona temp : usuarioActual.getListaAmigos()) {
             modelo.addElement(temp);
         }
@@ -1238,12 +1300,19 @@ public class LogIn extends javax.swing.JFrame {
     private void bt_eliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_eliminarMouseClicked
         // TODO add your handling code here:
         usuarioActual.getListaAmigos().remove(amigoEliminar);
+        historial.add(usuarioActual.getUsuario() + " eliminó a " + amigoEliminar.getUsuario());
     }//GEN-LAST:event_bt_eliminarMouseClicked
 
     private void cb_amigosActualesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_amigosActualesItemStateChanged
         // TODO add your handling code here:
-        amigoEliminar = (Persona)cb_amigosActuales.getSelectedItem();
+        amigoEliminar = (Persona) cb_amigosActuales.getSelectedItem();
     }//GEN-LAST:event_cb_amigosActualesItemStateChanged
+
+    private void cerrarSesionUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cerrarSesionUsuarioMouseClicked
+        // TODO add your handling code here:
+        jFUsuario.setVisible(false);
+        this.setVisible(true);
+    }//GEN-LAST:event_cerrarSesionUsuarioMouseClicked
 
     /**
      * @param args the command line arguments
@@ -1289,6 +1358,7 @@ public class LogIn extends javax.swing.JFrame {
     Persona amigoEnviar;
     Persona amigoAceptar;
     Persona amigoEliminar;
+    ArrayList<String> historial = new ArrayList();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AgregarAmigo;
     private javax.swing.JPanel AgregarLibro;
@@ -1304,11 +1374,13 @@ public class LogIn extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cb_amigos;
     private javax.swing.JComboBox<String> cb_amigosActuales;
     private javax.swing.JComboBox<String> cb_genero;
+    private javax.swing.JComboBox<String> cb_historial;
     private javax.swing.JComboBox<String> cb_libroGenero;
     private javax.swing.JComboBox<String> cb_libroadquiridos;
     private javax.swing.JComboBox<String> cb_libros;
     private javax.swing.JComboBox<String> cb_librosAdquiridos;
     private javax.swing.JComboBox<String> cb_solicitudes;
+    private javax.swing.JButton cerrarSesionUsuario;
     private javax.swing.JTextField contraseña;
     private javax.swing.JLabel contraseñaLabel;
     private javax.swing.JTextField contraseñaModificar;
@@ -1368,6 +1440,8 @@ public class LogIn extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
