@@ -1121,7 +1121,7 @@ public class LogIn extends javax.swing.JFrame {
         usuarioActual.setNumeroTelefono(Integer.parseInt(numeroTelefonoModificar.getText()));
         usuarioActual.setCorreo(correoModificar.getText());
         usuarioActual.setNombreCompleto(nombreCompletoModificar.getText());
-        
+        usuarioActual.setGeneroLibros(generoFavoritoModificar.getSelectedItem().toString());
     }//GEN-LAST:event_bt_modificarUsuarioMouseClicked
 
     private void cb_libroadquiridosItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_libroadquiridosItemStateChanged
