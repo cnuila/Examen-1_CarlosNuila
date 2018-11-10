@@ -1115,6 +1115,13 @@ public class LogIn extends javax.swing.JFrame {
 
     private void bt_modificarUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_modificarUsuarioMouseClicked
         // TODO add your handling code here:
+        usuarioActual.setUsuario(usuarioModificar.getText());
+        usuarioActual.setContraseña(contraseñaModificar.getText());
+        usuarioActual.setFechaNacimiento(fechaNacimientoModificar.getText());
+        usuarioActual.setNumeroTelefono(Integer.parseInt(numeroTelefonoModificar.getText()));
+        usuarioActual.setCorreo(correoModificar.getText());
+        usuarioActual.setNombreCompleto(nombreCompletoModificar.getText());
+        
     }//GEN-LAST:event_bt_modificarUsuarioMouseClicked
 
     private void cb_libroadquiridosItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_libroadquiridosItemStateChanged
@@ -1188,6 +1195,12 @@ public class LogIn extends javax.swing.JFrame {
 
     private void jPanel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MouseClicked
         // TODO add your handling code here:
+        usuarioModificar.setText(usuarioActual.getUsuario());
+        contraseñaModificar.setText(usuarioActual.getContraseña());
+        fechaNacimientoModificar.setText(usuarioActual.getFechaNacimiento());
+        numeroTelefonoModificar.setText(String.valueOf(usuarioActual.getNumeroTelefono()));
+        correoModificar.setText(usuarioActual.getCorreo());
+        nombreCompletoModificar.setText(usuarioActual.getNombreCompleto());
         
     }//GEN-LAST:event_jPanel7MouseClicked
 
